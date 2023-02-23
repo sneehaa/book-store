@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> BookStore</title>
+    <!-- LInk To CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!-- Box Icons -->
+    <link rel="stylesheet"
+          th:href="@{~/csshttps://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css}">
+</head>
+<body>
+<!-- Navbar -->
+<header>
+    <a href="#" class="logo">Book <span>Store.</span></a>
+    <div class="bx bx-menu" id="menu-icon"></div>
+
+    <ul class="navbar">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#new">New Arrival</a></li>
+   <a th:href="@{~/user/viewAllMyOrders/}+${userdata.id}">Profile</a>
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <!--            <li><a href="demo.html" class="btn">Profile</a></li>-->
+    </ul>
+</header>
+<!-- Home -->
+<section class="home" id="home">
+    <div class="home-text">
+        <h1><Span>Letting </Span> You find comfort <br> in every<span> pages of book.</span></h1>
+        <p>We provide books of all kind! making easier for a reader to find books of their kind</p>
+        <a href="#shop" class="btn">Shop Now</a>
+    </div>
+</section>
+<!-- Shop -->
+<section class="shop" id="shop">
+    <div class="heading">
+        <span>New Arrival</span>
+        <h2>Shop Now</h2>
+    </div>
+    <!-- Content -->
+    <div class="shop-container">
+        <!-- Box 1 -->
+        <div class="box" th:each="product:${add}">
+            <a th:href="@{~/user/productinfo/}+${product.id}">
+                <div class="box-img">
+                    <img th:src="'data:image/png;base64,'+${product.imageBase64}" alt="">
+                </div>
+                <div class="title-price">
+                    <h3 th:text="${product.productname}"></h3>
+                    <div class="stars">
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star-half' ></i>
+                    </div>
+                </div>
+                <span th:text="${product.price}"></span>
+            </a>
+            <!--                <i class='bx bx-cart' >buy</i>-->
+        </div>
+
+    </div>
+</section>
+<!-- New Arrival -->
+<section class="new" id="new">
+    <div class="heading">
+        <span>New Collection</span>
+        <h2>Best Selling</h2>
+    </div>
+    <!-- Content -->
+    <div class="new-container">
+        <!-- Box 1 -->
+        <div class="box" th:each="product:${productfetch}">
+            <a th:href="@{~/user/productinfo/}+${product.id}">
+
+                <div class="box-img">
+                    <img th:src="'data:image/png;base64,'+${product.imageBase64}" alt="">
+                </div>
+                <div class="title-price">
+                    <h3 th:text="${product.productname}"></h3>
+                    <div class="stars">
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star-half' ></i>
+                    </div>
+                </div>
+                <span th:text="${product.price}"></span>
+                <i class='bx bx-cart' ></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+<!-- About -->
+<section class="about" id="about">
+    <div class="about-img">
+        <img src="https://i.postimg.cc/vBjNh39Q/image2.png" alt="bookstore" />
+    </div>
+    <div class="about-text">
+        <span>About Us</span>
+        <h2>That's the thing about books; <br> They let you travel without moving your feet <3</h2>
+
+        <p>book store, a friend for all those bookworms who don't want to leave their rooms to buy books.
+            We often deliver your preferred books, or as we like to call, your "little joy book," to your door.</p>
+
+
+        <p>"She found heaven in a bookstore, she got lost in the pages". </p>
+        <a href="#shop" class="btn">Learn More.</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<section class="footer" id="footer">
+    <div class="footer-box">
+        <h2>Book <span>Store</span></h2>
+        <p>Read for the story, not the ending :)</p>
+        <div class="social">
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+        </div>
+    </div>
+    <div class="footer-box">
+        <h3>Services</h3>
+        <li><a href="#">Product</a></li>
+        <li><a href="#">Help & Support</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">FAQ</a></li>
+    </div>
+    <div class="footer-box">
+        <h3>Product</h3>
+
+        <li th:each="product:${productfetch}" ><a href="#" th:text="${product.productname}" ></a></li>
+
+    </div>
+    <div class="footer-box contact-info">
+        <h3>Contact</h3>
+        <span>Kathmandu Nepal, 44600</span>
+        <span>01 523 6784</span>
+            <span>Bookstore@gmail.com</span>
+
+    </div>
+</section>
+<div class="copyright">
+    <p>&#169; Copyright All Right Reserved 2022.</p>
+</div>
+<!-- Link To JS -->
+<script src="main.js"></script>
+</body>
+</html>

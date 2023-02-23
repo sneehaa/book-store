@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+
+  <link rel="stylesheet" th:href="@{/css/login.css}">
+
+</head>
+<body>
+<main>
+  <div class="box">
+    <div class="inner-box">
+      <div class="forms-wrap">
+        <form action=""  th:action="@{/login}" method="post" id="signUp">
+        <div class="logo">
+          <img src="https://i.postimg.cc/rpxVBV54/logo.png" alt="bookstore" />
+          </div>
+
+          <div class="heading">
+            <h2>Welcome Back</h2>
+            <h6>Not registered yet?</h6>
+            <div>
+              <a th:href="@{~/user/signup}" class="login">Signup</a>
+            </div>
+          </div>
+
+          <div class="actual-form">
+            <div class="input-wrap">
+              <label for="email" class="d-flex align-center justify-center">
+              </label>
+              <input class="input-style w-100" id="email" type="email"
+                      placeholder="Email Address" required name="email"/>
+            </div>
+
+            <div class="input-wrap">
+              <label for="password" class="d-flex align-center justify-center">
+              </label>
+
+              <input class="input-style w-100" type="password" id="password" placeholder="Password" required name="password"/>
+            </div>
+            <button type="submit" value="Login" class="login-btn">
+            Login
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="image">
+        <img src="https://i.postimg.cc/vBjNh39Q/image2.png" alt="bookstore" />
+      </div>
+
+      </div>
+  </div>
+</main>
+
+<!-- Javascript file -->
+
+<script th:href="@{/js/app.js}"></script>
+</body>
+</html>
