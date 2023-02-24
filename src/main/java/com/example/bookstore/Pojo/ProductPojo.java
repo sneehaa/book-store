@@ -26,8 +26,5 @@ public class ProductPojo {
        this.description=product.getDescription();
        this.productname=product.getProductname();
        this.quantity=product.getQuantity();
-       this.brand=product.getBrand();
-       this.category=product.getCatrgory();
-       this.color=product.getColor();
      }
 }

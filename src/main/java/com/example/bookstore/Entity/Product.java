@@ -2,6 +2,11 @@ package com.example.bookstore.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import java.util.Optional;
+import java.util.Set;
 
 @Builder
 @Getter
@@ -28,20 +33,15 @@ public class Product {
     @Column(name = "quantity")
     private String quantity;
 
-
-    @Column(name = "brand")
-    private String brand;
-
-    @Column(name = "category")
-    private String catrgory;
-    @Column(name = "color")
-    private String color;
-
     @Column(name = "image")
     private String image;
 
     @Transient
     private String imageBase64;
+
+    @OneToMany(mappedBy = "product_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Set<Order> orderSet;
 
 
 }

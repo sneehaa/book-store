@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="users", uniqueConstraints = { //user bhanne table banxa
+@Table(name="users", uniqueConstraints = {
         @UniqueConstraint(name = "UNIQUE_user_email", columnNames = "email")
 })
 
